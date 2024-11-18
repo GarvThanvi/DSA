@@ -56,20 +56,39 @@ void missingElement(int arr[], int n){
     }
 }
 
-int main(){
-    // int n = 10;
-    // int arr[n] = {1,-2,3,4,5,6,-7,-8,-9,10};
-    // shiftNegativeOneSide(arr, n);
-    
-    int n = 5;
-    int arr[5] = {1,3,3,3,5};
-
-    missingElement(arr, n);
-
-    // for(int i=0; i<n; i++){
-    //     cout<<arr[i]<<" ";
+void wavePrint(int row, int col, int arr[][10]){
+    // for(int i=0; i<col; i++){
+    //     for(int j=0; j<row; j++ ){
+    //         cout<<arr[j][i]<<" ";
+    //     }
+    //     i++;
+    //     for(int j=row-1;j>=0; j--){
+    //         cout<<arr[j][i]<<" ";
+    //     }
     // }
+
+    for(int i=0; i<col; i++){
+        if((i & 1) == 0){
+            for(int j=0; j<row; j++){
+                cout<<arr[j][i]<<" ";
+            }}
+            else{
+                for(int j=row-1; j>=0; j--){
+                cout<<arr[j][i]<<" ";
+            } 
+            }
+        
+    }
+}
+
+int main(){
+    int row = 3;
+    int col = 4;
+    int arr[10][10] = {{1,2,3,4}, {5,6,7,8}, {9,10,11,12}};
+
+    wavePrint(row, col, arr);
 
 
     return 0;
 }
+//Rest questions done on leetcode or gfg
