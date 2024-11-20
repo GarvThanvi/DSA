@@ -81,6 +81,8 @@ void wavePrint(int row, int col, int arr[][10]){
     }
 }
 
+
+
 int main(){
     int row = 3;
     int col = 4;
