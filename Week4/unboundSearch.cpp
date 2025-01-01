@@ -7,7 +7,7 @@ int main() {
     for (int i = 0; i < SIZE; ++i) {
         arr[i] = i * 2; 
     }
-
+    
     int target = 123456;
     int index = -1;
     for (int i = 0; i < SIZE; ++i) {
