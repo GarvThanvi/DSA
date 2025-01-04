@@ -77,7 +77,7 @@ int main() {
     char arr1[100];
     char arr2[100];
     cin>>arr1;
-cin>>arr2;
+    cin>>arr2;
 
     cout << strcat(arr1, arr2)<<endl;
     cout<<strlen(arr1)<<endl;
