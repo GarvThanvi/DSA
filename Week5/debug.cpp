@@ -144,6 +144,6 @@ int main()
     string s = "OABCDEAJFHGUE";
     string ans = sortVowels(s);
     cout << ans;
-
+   
     return 0;
 }
