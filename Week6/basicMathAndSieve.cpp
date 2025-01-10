@@ -49,7 +49,7 @@ void segmentedSieve(int L, int R) {
 
     vector<bool> segSieve(R - L + 1, true); 
     if (L == 1 || L == 0) {
-        segSieve[L] = false; 
+        segSieve[0] = false; 
     }
     for (int i = 0; i < basePrimes.size(); i++) {
         int firstMultiple = (L / basePrimes[i]) * basePrimes[i];
