@@ -12,7 +12,7 @@ void printSubsequences(string str, int i, string output){
     printSubsequences(str, i+1, output);
 }
 
-int main(){
+int main(){ 
     string str = "abc";
     string output = "";
     int index = 0;
