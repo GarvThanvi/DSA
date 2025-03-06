@@ -77,6 +77,37 @@ void mergeSort(int arr[], int s, int e)
     merge(arr, s, e, mid);
 }
 
+int partition(int arr[], int s, int e){
+    int pivot = arr[s];
+    //Count number of elements smaller than pivot
+    int count = 0;
+    for(int i=s+1; i<=e; i++){
+        if(arr[i] <= pivot) count++;
+    }
+
+    //place pivot at right position
+    int pivotIndex = s + count;
+    swap(arr[pivotIndex], arr[s]);
+
+    //left to pivot should be less than it and right to pivot elements are greater than it
+    int i = s, j = e;
+    while(i<pivotIndex && j > pivotIndex){
+        while(arr[i] < pivot) i++;
+        while(arr[j] > pivot) j--;
+        if(arr[i] > pivot && arr[j] < pivot){
+            swap(arr[i++], arr[j--]);
+        }
+    }
+    return pivotIndex;
+}
+
+void quickSort(int arr[], int s, int e){
+    if(s >= e) return;
+    int p = partition(arr, s, e);
+    quickSort(arr, s, p);
+    quickSort(arr, p+1, e);
+}
+
 int main()
 {
     // int arr[] = {10, 30, 50, 70};
@@ -91,11 +122,14 @@ int main()
     // {
     //     cout << num << " ";
     // }
-    int arr[] = {10, 5, 30, 15, 99, 89, 77};
-    mergeSort(arr, 0, 6);
+    int arr[] = {90, 89, 88, 87, 86, 85, 84};
+    quickSort(arr, 0 ,6);
+    // mergeSort(arr, 0, 6);
     for(int i=0; i<7; i++){
         cout << arr[i] << " ";
     }
+
+    
     return 0;
 
 
