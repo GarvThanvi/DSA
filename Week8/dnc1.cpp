@@ -91,7 +91,7 @@ int partition(int arr[], int s, int e){
 
     //left to pivot should be less than it and right to pivot elements are greater than it
     int i = s, j = e;
-    while(i<pivotIndex && j > pivotIndex){
+    while(i < pivotIndex && j > pivotIndex){
         while(arr[i] < pivot) i++;
         while(arr[j] > pivot) j--;
         if(arr[i] > pivot && arr[j] < pivot){
