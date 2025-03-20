@@ -6,7 +6,7 @@ int main(){
 
     //MIN_HEAP --> minimum value has highest priority
     priority_queue<int, vector<int>, greater<int> > pq;
-
+    
     pq.push(100);
     //100
     pq.push(20);
