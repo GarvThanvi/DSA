@@ -4,9 +4,7 @@ using namespace std;
 void findFirstOccurence(int arr[], int n ,  int target, int &ansIndex){
     int s = 0;
     int e = n -  1;
-
     int mid = s + (e-s)/2;
-
     while(s <= e){
         if(arr[mid] == target){
             ansIndex = mid;
@@ -18,14 +16,13 @@ void findFirstOccurence(int arr[], int n ,  int target, int &ansIndex){
         }
         mid = s + (e-s)/2;
     }
-
 }
 
 void findLastOccurence(int arr[],int n, int target, int &ansIndex){
     int s = 0, e = n - 1;
     while(s <= e){
         int mid = s + (e-s)/2;
-
+        
         if(arr[mid] == target){
             ansIndex = mid;
             s = mid + 1;
