@@ -1,6 +1,7 @@
 #include<iostream>
 #include<stack>
 #include<climits>
+#include<string>
 using namespace std;
 
 void printMiddle(stack<int>&s, int count){
@@ -62,6 +63,13 @@ void print(stack<int> &s){
     }
 }
 
+void printCharStack(stack<char> &s){
+    while(!s.empty()){
+        cout << s.top() << " ";
+        s.pop();
+    }
+}
+
 void sortedInsert(stack<int>&s, int val){
     if(s.empty()){
         s.push(val);
@@ -79,26 +87,50 @@ void sortedInsert(stack<int>&s, int val){
 
 }
 
-int main(){
-    stack<int> s;
-    s.push(10);
-    s.push(20);
-    s.push(30);
-    s.push(40);
-    s.push(50);
-    int val = 23;
-    // int count = s.size()/2;
-    // printMiddle(s, count);
+int redundantBrackets(string s){
+    stack<char> stk;
+    int count = 0;
+    for(int i=0; i<s.length(); i++){
+        char ch = s[i];
+        if(ch == '(' || ch == '+' || ch == '-' || ch == '*' || ch == '/' || ch == '%'){
+            stk.push(ch);
+        }else if(ch == ')' && !stk.empty() && stk.top() == '('){
+            count++;
+            stk.pop();
+        }else if(ch >= '0' && ch <= '9'){
+            continue;
+        }else{
+            stk.push(ch);
+        }
 
-    // int element1 = INT_MAX;
-    // if(checkSorted(s, element1)) cout << " Yes";
-    // else cout << "No";
+    }
+    printCharStack(stk);
+    return count;
+}
+
+int main(){
+    // stack<int> s;
+    // s.push(10);
+    // s.push(20);
+    // s.push(30);
+    // s.push(40);
+    // s.push(50);
+    // int val = 23;
+    // // int count = s.size()/2;
+    // // printMiddle(s, count);
+    // // int element1 = INT_MAX;
+    // // if(checkSorted(s, element1)) cout << " Yes";
+    // // else cout << "No";
     
-    // reverseStack(s);
+    // // reverseStack(s);
+    // // print(s);
+
+    // sortedInsert(s, 23);
     // print(s);
-     
-    sortedInsert(s, 23);
-    print(s);
+
+    string s = "((5) + (3+2))";
+    int ans = redundantBrackets(s);
+    cout << ans;
 
     return 0;
 }
