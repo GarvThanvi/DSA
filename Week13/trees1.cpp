@@ -79,12 +79,12 @@ void levelOrderTraversal(Node *root)
         if (front == NULL)
         {
             cout << endl;
-            if(!q.empty()) q.push(NULL);
-            
+            if (!q.empty())
+                q.push(NULL);
         }
         else
         {
-         
+
             cout << front->data << " ";
             if (front->left != NULL)
             {
@@ -98,9 +98,46 @@ void levelOrderTraversal(Node *root)
     }
 }
 
+void levelOrderTraversalRightToLeft(Node *root)
+{
+    if (root == NULL)
+        return;
+    queue<Node *> q;
+    q.push(root);
+    q.push(NULL);
+    while (!q.empty())
+    {
+        Node *front = q.front();
+        q.pop();
+        if (front == NULL)
+        {
+            cout << endl;
+            if (!q.empty())
+                q.push(NULL);
+        }
+        else
+        {
+
+            cout << front->data << " ";
+            if (front->right != NULL)
+            {
+                q.push(front->right);
+            }
+            if (front->left != NULL)
+            {
+                q.push(front->left);
+            }
+        }
+    }
+}
+
+
+
 int main()
 {
     Node *root;
     root = root->createTree();
     levelOrderTraversal(root);
+    levelOrderTraversalRightToLeft(root);
+    // levelOrderTraversalZigZag(root);
 }
