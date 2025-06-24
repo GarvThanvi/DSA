@@ -1,11 +1,11 @@
-// #include <iostream>
-// using namespace std;
-// int main() {
-  // //Simple Interest
-  // float p,r,t;
-  // cin>>p>>r>>t;
-  // float si = (p*r*t)/100;
-  // cout<<si;
+#include <iostream>
+using namespace std;
+int main() {
+  //Simple Interest
+  float p,r,t;
+  cin>>p>>r>>t;
+  float si = (p*r*t)/100;
+  cout<<si;
 
   // //factorial of a number
   // int n;
@@ -109,5 +109,5 @@
 //     }
 //     cout << endl;
 //   }
-//   return 0;
-// }
+  return 0;
+}
