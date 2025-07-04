@@ -85,7 +85,7 @@ void Heapify(int *arr, int n, int currIndex)
     int i = currIndex;
     int leftIndex = 2 * i;
     int rightIndex = 2 * i + 1;
-
+    
     int largestKaIndex = i;
 
     if (leftIndex < n && arr[leftIndex] > arr[largestKaIndex])
