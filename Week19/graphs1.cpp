@@ -75,17 +75,48 @@ class Graph{
             }
         }
       }
+
+      bool cycleDetectionUndirectedBFS(int src){
+        queue<int>q;
+        unordered_map<int, int> parent;
+        unordered_map<int, bool> visited;
+
+        q.push(src);
+        visited[src] = true;
+        parent[src] = -1;
+
+        while(!q.empty()){
+            int frontNode = q.front();
+            q.pop();
+
+            for(auto nbr: adjList[frontNode]){
+                if(!visited[nbr.first]){
+                    q.push(nbr.first);
+                    visited[nbr.first] = true;
+                    parent[nbr.first] = frontNode; 
+                }
+
+                //cycle detection logic 
+                else if(visited[nbr.first] && nbr.first != parent[frontNode]){
+                    return true;
+                }
+            }
+        }
+        return false;
+      }
 };
 
 int main(){
     Graph g;
-    g.addEdge(0,1,1, 5);
-    g.addEdge(0,2,1, 4);
-    g.addEdge(1,2,1, 3);
-    g.addEdge(2,3,1, 2);
+    g.addEdge(0,1,1,0);
+    g.addEdge(1,2,1,0);
+    g.addEdge(2,3,1,0);
+    // g.addEdge(3,4,1,0);
     int n = 4;
     g.printAdjList(n);
-    g.bfsTraversal(0);
-    g.dfsTraversal(n);
+    // g.bfsTraversal(0);
+    // g.dfsTraversal(n);
+    if(g.cycleDetectionUndirectedBFS(0)) cout << "Cycle Found" << endl;
+    else { cout << "Cycle Absent" << endl;}
     return 0;
 }
