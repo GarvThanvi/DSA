@@ -20,19 +20,26 @@ int main() {
 
     vector<int> arr = {10, 20, 30, 40, 50};
 
-    vector<int> result;
+    // vector<int> result;
 
-    for (int i = 0; i < arr.size(); i += 2) {
-        result.push_back(arr[i]);
-    }
+    // for (int i = 0; i < arr.size(); i += 2) {
+    //     result.push_back(arr[i]);
+    // }
 
-    for (int i = 1; i < arr.size(); i += 2) {
-        result.push_back(arr[i]);
-    }
+    // for (int i = 1; i < arr.size(); i += 2) {
+    //     result.push_back(arr[i]);
+    // }
 
-    for (int x : result) {
-        cout << x << " ";
-    }
-
+    // for (int x : result) {
+    //     cout << x << " ";
+    // }
+    int index = 0;
+    stable_partition(arr.begin(), arr.end(), [&index](const int&){
+        bool isEven = (index % 2 == 0);
+        index++;
+        return isEven;
+    });
+    for(int x: arr) cout << x << " ";
+    cout << endl;
     return 0;
 }
